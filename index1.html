@@ -12,160 +12,177 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
-        .neon-glow {
-            text-shadow: 0 0 10px rgba(16, 185, 129, 0.5), 0 0 20px rgba(16, 185, 129, 0.3);
+        .brand-gradient {
+            background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #ec4899 100%);
         }
-        .neon-border {
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+        .text-gradient {
+            background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-glow {
+            transition: all 0.3s ease;
+        }
+        .card-glow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(124, 58, 237, 0.15);
         }
         .swiper-pagination-bullet-active {
-            background-color: #10b981 !important;
+            background-color: #7c3aed !important;
+            width: 24px !important;
+            border-radius: 6px !important;
         }
         .swiper-pagination-bullet {
-            background-color: #64748b;
+            background-color: #cbd5e1;
+            transition: all 0.3s ease;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col justify-between">
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between selection:bg-purple-500 selection:text-white">
 
     <!-- Header / Navbar -->
-    <header class="border-b border-emerald-900/40 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-gradient-to-tr from-emerald-600 to-teal-400 rounded-xl flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-emerald-500/20">V</div>
-                <span class="font-black text-2xl text-white tracking-wider neon-glow">VELORA</span>
+                <div class="w-10 h-10 brand-gradient rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-purple-500/30">V</div>
+                <span class="font-black text-2xl tracking-wider text-gradient">VELORA</span>
             </div>
-            <a href="https://t.me/rigby13" target="_blank" class="text-sm bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition flex items-center gap-2 shadow-lg shadow-emerald-600/20">
+            <a href="https://t.me/rigby13" target="_blank" class="text-sm brand-gradient hover:opacity-95 text-white font-bold px-6 py-2.5 rounded-full transition flex items-center gap-2 shadow-lg shadow-purple-500/25">
                 <i class="fab fa-telegram-plane text-base"></i> Order via Telegram
             </a>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-6 py-10 flex-1 w-full space-y-12">
+    <main class="max-w-6xl mx-auto px-6 py-12 flex-1 w-full space-y-14">
         
-        <!-- Hero Banner -->
-        <div class="text-center space-y-4 max-w-3xl mx-auto bg-slate-900/60 border border-emerald-500/30 p-8 md:p-10 rounded-3xl neon-border relative overflow-hidden flex flex-col items-center">
-            <div class="absolute -right-10 -top-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
-            <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
+        <!-- Modern Hero Banner -->
+        <div class="text-center space-y-5 max-w-3xl mx-auto bg-gradient-to-b from-slate-800/80 to-slate-900/80 border border-slate-700/60 p-8 md:p-12 rounded-3xl relative overflow-hidden flex flex-col items-center shadow-2xl">
+            <div class="absolute -right-20 -top-20 w-56 h-56 bg-purple-600/20 rounded-full blur-3xl"></div>
+            <div class="absolute -left-20 -bottom-20 w-56 h-56 bg-pink-600/20 rounded-full blur-3xl"></div>
             
-            <div class="w-20 h-20 bg-gradient-to-tr from-emerald-600 to-teal-400 rounded-2xl flex items-center justify-center text-slate-950 font-black text-4xl shadow-xl shadow-emerald-500/20 mb-2">V</div>
+            <div class="w-20 h-20 brand-gradient rounded-3xl flex items-center justify-center text-white font-black text-4xl shadow-xl shadow-purple-500/30 mb-2">V</div>
             
-            <h1 class="text-4xl md:text-6xl font-black text-white tracking-wide neon-glow">VELORA</h1>
-            <p class="text-sm font-mono tracking-widest text-emerald-400 uppercase font-bold">Premium Everyday Essentials Catalog</p>
-            <p class="text-base text-slate-300 pt-1">Explore our exclusive collections below and order directly with quick assistance via Telegram.</p>
+            <span class="text-xs font-mono tracking-widest text-pink-400 uppercase font-black bg-pink-500/10 px-4 py-1.5 rounded-full border border-pink-500/20">
+                ✨ Exclusive Collection 2026
+            </span>
+
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white">
+                Elevate Your <span class="text-gradient">Everyday Style</span>
+            </h1>
+            <p class="text-base text-slate-300 max-w-xl">Explore our premium catalog of curated essentials. Direct instant ordering available via Telegram support.</p>
         </div>
 
-        <!-- Normal Products Catalog Grid -->
+        <!-- Products Catalog Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <!-- 1. Organic Haircare Shampoo -->
-            <div class="bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition rounded-2xl p-6 flex flex-col justify-between space-y-6">
+            <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 flex flex-col justify-between card-glow space-y-6">
                 <div>
                     <div class="flex justify-between items-center mb-3">
                         <h3 class="text-xl font-black text-white tracking-wide">Botanical Shampoo</h3>
-                        <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-lg font-mono font-bold">Care</span>
+                        <span class="text-xs bg-purple-500/10 text-purple-400 border border-purple-500/20 px-3 py-1 rounded-full font-mono font-bold">Care</span>
                     </div>
-                    <p class="text-xs text-slate-400">Nourishing organic shampoo enriched with natural oils for silkier, healthy hair.</p>
-                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-800 pt-4">
-                        <li class="flex justify-between items-center"><span class="font-bold">250 ml Bottle</span><span class="text-emerald-400 font-black text-base">$18</span></li>
-                        <li class="flex justify-between items-center"><span class="font-bold">500 ml Bottle</span><span class="text-emerald-400 font-black text-base">$32</span></li>
-                        <li class="flex justify-between items-center"><span class="font-bold">Duo Value Pack</span><span class="text-emerald-400 font-black text-base">$55</span></li>
+                    <p class="text-xs text-slate-400 leading-relaxed">Nourishing organic shampoo enriched with natural oils for silkier, healthy hair.</p>
+                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-700/50 pt-4">
+                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">250 ml Bottle</span><span class="text-pink-400 font-black text-base">$18</span></li>
+                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">500 ml Bottle</span><span class="text-pink-400 font-black text-base">$32</span></li>
+                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Duo Value Pack</span><span class="text-pink-400 font-black text-base">$55</span></li>
                     </ul>
                 </div>
-                <button onclick="orderItem('Botanical Shampoo', 'Standard Selection')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 tracking-wide uppercase">
+                <button onclick="orderItem('Botanical Shampoo', 'Standard Selection')" class="w-full brand-gradient hover:opacity-95 text-white font-bold text-xs py-3.5 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 tracking-wide uppercase">
                     <i class="fab fa-telegram text-base"></i> Order via Telegram
                 </button>
             </div>
 
             <!-- 2. Classic Cotton Hoodie -->
-            <div class="bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition rounded-2xl p-6 flex flex-col justify-between space-y-6">
+            <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 flex flex-col justify-between card-glow space-y-6">
                 <div>
                     <div class="flex justify-between items-center mb-3">
                         <h3 class="text-xl font-black text-white tracking-wide">Essential Hoodie</h3>
-                        <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-lg font-mono font-bold">Apparel</span>
+                        <span class="text-xs bg-pink-500/10 text-pink-400 border border-pink-500/20 px-3 py-1 rounded-full font-mono font-bold">Apparel</span>
                     </div>
-                    <p class="text-xs text-slate-400">Ultra-soft heavy fleece hoodie designed for everyday comfort and modern fit.</p>
-                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-800 pt-4">
-                        <li class="flex justify-between items-center"><span class="font-bold">Single Piece</span><span class="text-emerald-400 font-black text-base">$45</span></li>
-                        <li class="flex justify-between items-center"><span class="font-bold">Bundle (Set of 2)</span><span class="text-emerald-400 font-black text-base">$80</span></li>
-                        <li class="flex justify-between items-center"><span class="font-bold">Wholesale (10 pcs)</span><span class="text-emerald-400 font-black text-base">$350</span></li>
+                    <p class="text-xs text-slate-400 leading-relaxed">Ultra-soft heavy fleece hoodie designed for everyday comfort and modern fit.</p>
+                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-700/50 pt-4">
+                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Single Piece</span><span class="text-pink-400 font-black text-base">$45</span></li>
+                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Bundle (Set of 2)</span><span class="text-pink-400 font-black text-base">$80</span></li>
+                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Wholesale (10 pcs)</span><span class="text-pink-400 font-black text-base">$350</span></li>
                     </ul>
                 </div>
-                <button onclick="orderItem('Essential Hoodie', 'Standard Selection')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 tracking-wide uppercase">
+                <button onclick="orderItem('Essential Hoodie', 'Standard Selection')" class="w-full brand-gradient hover:opacity-95 text-white font-bold text-xs py-3.5 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 tracking-wide uppercase">
                     <i class="fab fa-telegram text-base"></i> Order via Telegram
                 </button>
             </div>
 
             <!-- 3. Minimalist Leather Wallet -->
-            <div class="bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition rounded-2xl p-6 flex flex-col justify-between space-y-6">
+            <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 flex flex-col justify-between card-glow space-y-6">
                 <div>
                     <div class="flex justify-between items-center mb-3">
-                        <h3 class="text-xl font-black text-white tracking-wide">Slim Leather Cardholder</h3>
-                        <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-lg font-mono font-bold">Accessories</span>
+                        <h3 class="text-xl font-black text-white tracking-wide">Leather Cardholder</h3>
+                        <span class="text-xs bg-purple-500/10 text-purple-400 border border-purple-500/20 px-3 py-1 rounded-full font-mono font-bold">Accessories</span>
                     </div>
-                    <p class="text-xs text-slate-400">Handcrafted genuine leather wallet with RFID blocking capability.</p>
-                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-800 pt-4">
-                        <li class="flex justify-between items-center"><span class="font-bold">Standard Leather</span><span class="text-emerald-400 font-black text-base">$25</span></li>
-                        <li class="flex justify-between items-center"><span class="font-bold">Matte Black Edition</span><span class="text-emerald-400 font-black text-base">$30</span></li>
-                        <li class="flex justify-between items-center"><span class="font-bold">Gift Box Set</span><span class="text-emerald-400 font-black text-base">$42</span></li>
+                    <p class="text-xs text-slate-400 leading-relaxed">Handcrafted genuine leather wallet with RFID blocking capability.</p>
+                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-700/50 pt-4">
+                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Standard Leather</span><span class="text-pink-400 font-black text-base">$25</span></li>
+                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Matte Black Edition</span><span class="text-pink-400 font-black text-base">$30</span></li>
+                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Gift Box Set</span><span class="text-pink-400 font-black text-base">$42</span></li>
                     </ul>
                 </div>
-                <button onclick="orderItem('Slim Leather Cardholder', 'Standard Selection')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 tracking-wide uppercase">
+                <button onclick="orderItem('Slim Leather Cardholder', 'Standard Selection')" class="w-full brand-gradient hover:opacity-95 text-white font-bold text-xs py-3.5 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 tracking-wide uppercase">
                     <i class="fab fa-telegram text-base"></i> Order via Telegram
                 </button>
             </div>
 
             <!-- 4. Stainless Steel Water Bottle -->
-            <div class="bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition rounded-2xl p-6 flex flex-col justify-between space-y-6">
+            <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 flex flex-col justify-between card-glow space-y-6">
                 <div>
                     <div class="flex justify-between items-center mb-3">
-                        <h3 class="text-xl font-black text-white tracking-wide">Thermal Hydration Flask</h3>
-                        <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-lg font-mono font-bold">Lifestyle</span>
+                        <h3 class="text-xl font-black text-white tracking-wide">Thermal Flask</h3>
+                        <span class="text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1 rounded-full font-mono font-bold">Lifestyle</span>
                     </div>
-                    <p class="text-xs text-slate-400">Insulated double-wall flask keeping liquids cold for 24h or hot for 12h.</p>
-                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-800 pt-4">
-                        <li class="flex justify-between items-center"><span class="font-bold">500 ml Flask</span><span class="text-emerald-400 font-black text-base">$22</span></li>
-                        <li class="flex justify-between items-center"><span class="font-bold">1000 ml Flask</span><span class="text-emerald-400 font-black text-base">$34</span></li>
+                    <p class="text-xs text-slate-400 leading-relaxed">Insulated double-wall flask keeping liquids cold for 24h or hot for 12h.</p>
+                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-700/50 pt-4">
+                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">500 ml Flask</span><span class="text-pink-400 font-black text-base">$22</span></li>
+                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">1000 ml Flask</span><span class="text-pink-400 font-black text-base">$34</span></li>
                     </ul>
                 </div>
-                <button onclick="orderItem('Thermal Hydration Flask', 'Standard Selection')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 tracking-wide uppercase">
+                <button onclick="orderItem('Thermal Hydration Flask', 'Standard Selection')" class="w-full brand-gradient hover:opacity-95 text-white font-bold text-xs py-3.5 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 tracking-wide uppercase">
                     <i class="fab fa-telegram text-base"></i> Order via Telegram
                 </button>
             </div>
 
             <!-- 5. Urban Everyday Backpack -->
-            <div class="bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition rounded-2xl p-6 flex flex-col justify-between space-y-6">
+            <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 flex flex-col justify-between card-glow space-y-6">
                 <div>
                     <div class="flex justify-between items-center mb-3">
-                        <h3 class="text-xl font-black text-white tracking-wide">Urban Commute Backpack</h3>
-                        <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-lg font-mono font-bold">Bags</span>
+                        <h3 class="text-xl font-black text-white tracking-wide">Urban Backpack</h3>
+                        <span class="text-xs bg-pink-500/10 text-pink-400 border border-pink-500/20 px-3 py-1 rounded-full font-mono font-bold">Bags</span>
                     </div>
-                    <p class="text-xs text-slate-400">Water-resistant laptop backpack designed for daily travel and office commute.</p>
-                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-800 pt-4">
-                        <li class="flex justify-between items-center"><span class="font-bold">Standard 15" Bag</span><span class="text-emerald-400 font-black text-base">$58</span></li>
-                        <li class="flex justify-between items-center"><span class="font-bold">Pro Travel Edition</span><span class="text-emerald-400 font-black text-base">$75</span></li>
+                    <p class="text-xs text-slate-400 leading-relaxed">Water-resistant laptop backpack designed for daily travel and office commute.</p>
+                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-700/50 pt-4">
+                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Standard 15" Bag</span><span class="text-pink-400 font-black text-base">$58</span></li>
+                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Pro Travel Edition</span><span class="text-pink-400 font-black text-base">$75</span></li>
                     </ul>
                 </div>
-                <button onclick="orderItem('Urban Commute Backpack', 'Standard Selection')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 tracking-wide uppercase">
+                <button onclick="orderItem('Urban Commute Backpack', 'Standard Selection')" class="w-full brand-gradient hover:opacity-95 text-white font-bold text-xs py-3.5 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 tracking-wide uppercase">
                     <i class="fab fa-telegram text-base"></i> Order via Telegram
                 </button>
             </div>
 
-            <!-- 6. Wireless Noise Canceling Earbuds -->
-            <div class="bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition rounded-2xl p-6 flex flex-col justify-between space-y-6">
+            <!-- 6. Wireless Earbuds -->
+            <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 flex flex-col justify-between card-glow space-y-6">
                 <div>
                     <div class="flex justify-between items-center mb-3">
-                        <h3 class="text-xl font-black text-white tracking-wide">True Wireless Earbuds</h3>
-                        <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-lg font-mono font-bold">Tech</span>
+                        <h3 class="text-xl font-black text-white tracking-wide">Wireless Earbuds</h3>
+                        <span class="text-xs bg-purple-500/10 text-purple-400 border border-purple-500/20 px-3 py-1 rounded-full font-mono font-bold">Tech</span>
                     </div>
-                    <p class="text-xs text-slate-400">Crystal clear audio with active noise cancellation and long battery lifespan.</p>
-                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-800 pt-4">
-                        <li class="flex justify-between items-center"><span class="font-bold">Earbuds Set</span><span class="text-emerald-400 font-black text-base">$65</span></li>
-                        <li class="flex justify-between items-center"><span class="font-bold">Set + Wireless Charger</span><span class="text-emerald-400 font-black text-base">$85</span></li>
+                    <p class="text-xs text-slate-400 leading-relaxed">Crystal clear audio with active noise cancellation and long battery lifespan.</p>
+                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-700/50 pt-4">
+                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Earbuds Set</span><span class="text-pink-400 font-black text-base">$65</span></li>
+                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Set + Wireless Charger</span><span class="text-pink-400 font-black text-base">$85</span></li>
                     </ul>
                 </div>
-                <button onclick="orderItem('True Wireless Earbuds', 'Standard Selection')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 tracking-wide uppercase">
+                <button onclick="orderItem('True Wireless Earbuds', 'Standard Selection')" class="w-full brand-gradient hover:opacity-95 text-white font-bold text-xs py-3.5 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 tracking-wide uppercase">
                     <i class="fab fa-telegram text-base"></i> Order via Telegram
                 </button>
             </div>
@@ -173,63 +190,62 @@
         </div>
 
         <!-- Order & Delivery Information Section -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-7 space-y-6">
-            <h3 class="text-xl font-black text-white border-b border-slate-800 pb-4 flex items-center gap-3">
-                <i class="fas fa-truck text-emerald-400 text-2xl"></i> Ordering & Shipping Info
+        <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-8 space-y-6 shadow-xl">
+            <h3 class="text-xl font-black text-white border-b border-slate-700/60 pb-4 flex items-center gap-3">
+                <i class="fas fa-shipping-fast text-purple-400 text-2xl"></i> Ordering & Delivery Terms
             </h3>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-slate-200">
                 <div class="space-y-3">
                     <p><strong class="text-white text-base">Payment Methods:</strong> Credit Card, Apple Pay, PayPal & Online Direct Transfer.</p>
                     <p><strong class="text-white text-base">Order Processing:</strong> Orders are dispatched within 24 hours of placement.</p>
-                    <p><strong class="text-white text-base">Worldwide Delivery:</strong> Express 3-5 business days shipping available.</p>
                 </div>
                 <div class="space-y-3">
-                    <p><strong class="text-white text-base">Customer Support:</strong> Live instant support available via Telegram.</p>
+                    <p><strong class="text-white text-base">Worldwide Delivery:</strong> Express 3-5 business days shipping available.</p>
                     <p><strong class="text-white text-base">Return Policy:</strong> 30-day money-back guarantee for all catalog items.</p>
                 </div>
             </div>
         </div>
 
         <!-- Animated Customer Feedback Section -->
-        <div class="bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition rounded-2xl p-7 space-y-6">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+        <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-8 space-y-6 shadow-xl">
+            <div class="flex items-center justify-between border-b border-slate-700/60 pb-4">
                 <h3 class="text-xl font-black text-white flex items-center gap-3">
-                    <i class="fas fa-star text-amber-400 text-2xl"></i> Customer Reviews & Showcases
+                    <i class="fas fa-star text-amber-400 text-2xl"></i> Customer Reviews
                 </h3>
-                <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-lg font-mono font-bold">100% Verified</span>
+                <span class="text-xs bg-purple-500/10 text-purple-400 border border-purple-500/20 px-3 py-1 rounded-full font-mono font-bold">Verified Feed</span>
             </div>
 
             <!-- Swiper Slider Container -->
-            <div class="swiper reviewsSwiper pb-10">
+            <div class="swiper reviewsSwiper pb-12">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="bg-slate-950 p-2 rounded-2xl border border-slate-800 overflow-hidden shadow-lg">
+                        <div class="bg-slate-900 p-2 rounded-2xl border border-slate-700/50 overflow-hidden shadow-lg">
                             <img src="1.jpg" alt="Review 1" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="bg-slate-950 p-2 rounded-2xl border border-slate-800 overflow-hidden shadow-lg">
+                        <div class="bg-slate-900 p-2 rounded-2xl border border-slate-700/50 overflow-hidden shadow-lg">
                             <img src="2.jpg" alt="Review 2" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="bg-slate-950 p-2 rounded-2xl border border-slate-800 overflow-hidden shadow-lg">
+                        <div class="bg-slate-900 p-2 rounded-2xl border border-slate-700/50 overflow-hidden shadow-lg">
                             <img src="3.jpg" alt="Review 3" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="bg-slate-950 p-2 rounded-2xl border border-slate-800 overflow-hidden shadow-lg">
+                        <div class="bg-slate-900 p-2 rounded-2xl border border-slate-700/50 overflow-hidden shadow-lg">
                             <img src="4.jpg" alt="Review 4" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="bg-slate-950 p-2 rounded-2xl border border-slate-800 overflow-hidden shadow-lg">
+                        <div class="bg-slate-900 p-2 rounded-2xl border border-slate-700/50 overflow-hidden shadow-lg">
                             <img src="5.jpg" alt="Review 5" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="bg-slate-950 p-2 rounded-2xl border border-slate-800 overflow-hidden shadow-lg">
+                        <div class="bg-slate-900 p-2 rounded-2xl border border-slate-700/50 overflow-hidden shadow-lg">
                             <img src="6.jpg" alt="Review 6" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
                         </div>
                     </div>
@@ -241,7 +257,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-emerald-900/30 py-6 text-center text-xs text-slate-500">
+    <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-400">
         <p>© 2026 VELORA Store. All rights reserved.</p>
     </footer>
 
@@ -275,7 +291,7 @@
             breakpoints: {
                 640: {
                     slidesPerView: 2,
-                    spaceBetween: 20,
+                    spaceBetween: 24,
                 },
             },
         });
