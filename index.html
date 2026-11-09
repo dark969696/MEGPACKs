@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEGPACKs - Premium Catalog</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(34, 197, 94, 0.6), 0 0 20px rgba(34, 197, 94, 0.4);
+        }
+        .neon-border {
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="border-b border-emerald-900/50 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-emerald-500/30">M</div>
+                <span class="font-black text-xl text-white tracking-wider neon-glow">MEGPACKs</span>
+            </div>
+            <a href="https://t.me/rigby13" target="_blank" class="text-xs bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2 shadow-lg shadow-emerald-600/20">
+                <i class="fab fa-telegram-plane"></i> Contact @rigby13
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 py-10 flex-1 w-full space-y-12">
+        
+        <!-- Hero Banner / Logo Showcase -->
+        <div class="text-center space-y-4 max-w-2xl mx-auto bg-slate-900/60 border border-emerald-500/30 p-8 rounded-3xl neon-border relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
+            
+            <h1 class="text-4xl md:text-5xl font-black text-white tracking-wide neon-glow">MEGPACKs</h1>
+            <p class="text-xs font-mono tracking-widest text-emerald-400 uppercase">Medicinal Cannabis & Premium Catalog</p>
+            <p class="text-sm text-slate-300 pt-2">Choose your items below and place your order directly via Telegram with <span class="text-emerald-400 font-semibold">@rigby13</span>.</p>
+        </div>
+
+        <!-- Products Catalog Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- 1. Phantom Runtz -->
+            <div class="bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition rounded-2xl p-6 flex flex-col justify-between space-y-4">
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-white">Phantom Runtz</h3>
+                        <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-mono">Indica</span>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-300 font-mono mt-4 border-t border-slate-800 pt-3">
+                        <li class="flex justify-between"><span>OZ</span><span class="text-emerald-400 font-bold">$120</span></li>
+                        <li class="flex justify-between"><span>QP</span><span class="text-emerald-400 font-bold">$400</span></li>
+                        <li class="flex justify-between"><span>HP</span><span class="text-emerald-400 font-bold">$630</span></li>
+                        <li class="flex justify-between"><span>LB</span><span class="text-emerald-400 font-bold">$1500</span></li>
+                        <li class="flex justify-between"><span>5 LBS</span><span class="text-emerald-400 font-bold">$5325 <span class="text-slate-500 text-[10px]">($1065/per)</span></span></li>
+                        <li class="flex justify-between"><span>10 LBS+</span><span class="text-emerald-400 font-bold">$10150 <span class="text-slate-500 text-[10px]">($1015/per)</span></span></li>
+                    </ul>
+                </div>
+                <button onclick="orderItem('Phantom Runtz', 'Various Sizes')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20">
+                    <i class="fab fa-telegram"></i> Order via Telegram
+                </button>
+            </div>
+
+            <!-- 2. Sour Diesel -->
+            <div class="bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition rounded-2xl p-6 flex flex-col justify-between space-y-4">
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-white">Sour Diesel</h3>
+                        <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-mono">50% Indica - 50% Sativa</span>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-300 font-mono mt-4 border-t border-slate-800 pt-3">
+                        <li class="flex justify-between"><span>OZ</span><span class="text-emerald-400 font-bold">$120</span></li>
+                        <li class="flex justify-between"><span>QP</span><span class="text-emerald-400 font-bold">$400</span></li>
+                        <li class="flex justify-between"><span>HP</span><span class="text-emerald-400 font-bold">$700</span></li>
+                        <li class="flex justify-between"><span>LB</span><span class="text-emerald-400 font-bold">$1500</span></li>
+                        <li class="flex justify-between"><span>5 LBS</span><span class="text-emerald-400 font-bold">$7625 <span class="text-slate-500 text-[10px]">($1125/per)</span></span></li>
+                        <li class="flex justify-between"><span>10 LBS+</span><span class="text-emerald-400 font-bold">$14750 <span class="text-slate-500 text-[10px]">($1075/per)</span></span></li>
+                    </ul>
+                </div>
+                <button onclick="orderItem('Sour Diesel', 'Various Sizes')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20">
+                    <i class="fab fa-telegram"></i> Order via Telegram
+                </button>
+            </div>
+
+            <!-- 3. NC-17 -->
+            <div class="bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition rounded-2xl p-6 flex flex-col justify-between space-y-4">
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-white">NC-17</h3>
+                        <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-mono">Starter Indica</span>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-300 font-mono mt-4 border-t border-slate-800 pt-3">
+                        <li class="flex justify-between"><span>7G</span><span class="text-emerald-400 font-bold">$80</span></li>
+                        <li class="flex justify-between"><span>14G</span><span class="text-emerald-400 font-bold">$100</span></li>
+                        <li class="flex justify-between"><span>OZ</span><span class="text-emerald-400 font-bold">$120</span></li>
+                        <li class="flex justify-between"><span>QP</span><span class="text-emerald-400 font-bold">$400</span></li>
+                        <li class="flex justify-between"><span>HP</span><span class="text-emerald-400 font-bold">$730</span></li>
+                        <li class="flex justify-between"><span>LB</span><span class="text-emerald-400 font-bold">$1435</span></li>
+                        <li class="flex justify-between"><span>5 LBS</span><span class="text-emerald-400 font-bold">$7925 <span class="text-slate-500 text-[10px]">($1185/per)</span></span></li>
+                        <li class="flex justify-between"><span>10 LBS+</span><span class="text-emerald-400 font-bold">$15350 <span class="text-slate-500 text-[10px]">($1135/per)</span></span></li>
+                    </ul>
+                </div>
+                <button onclick="orderItem('NC-17', 'Various Sizes')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20">
+                    <i class="fab fa-telegram"></i> Order via Telegram
+                </button>
+            </div>
+
+            <!-- 4. SFV OG -->
+            <div class="bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition rounded-2xl p-6 flex flex-col justify-between space-y-4">
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-white">SFV OG</h3>
+                        <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-mono">Hybrid (70% Ind / 30% Sat)</span>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-300 font-mono mt-4 border-t border-slate-800 pt-3">
+                        <li class="flex justify-between"><span>7G</span><span class="text-emerald-400 font-bold">$80</span></li>
+                        <li class="flex justify-between"><span>14G</span><span class="text-emerald-400 font-bold">$120</span></li>
+                        <li class="flex justify-between"><span>OZ</span><span class="text-emerald-400 font-bold">$180</span></li>
+                        <li class="flex justify-between"><span>QP</span><span class="text-emerald-400 font-bold">$510</span></li>
+                        <li class="flex justify-between"><span>HP</span><span class="text-emerald-400 font-bold">$900</span></li>
+                        <li class="flex justify-between"><span>LB</span><span class="text-emerald-400 font-bold">$1749</span></li>
+                        <li class="flex justify-between"><span>5 LBS</span><span class="text-emerald-400 font-bold">$7895 <span class="text-slate-500 text-[10px]">($1499/per)</span></span></li>
+                        <li class="flex justify-between"><span>10 LBS+</span><span class="text-emerald-400 font-bold">$17490 <span class="text-slate-500 text-[10px]">($1449/per)</span></span></li>
+                    </ul>
+                </div>
+                <button onclick="orderItem('SFV OG', 'Various Sizes')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20">
+                    <i class="fab fa-telegram"></i> Order via Telegram
+                </button>
+            </div>
+
+        </div>
+
+        <!-- 5. Baked Edibles -->
+        <div class="bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition rounded-2xl p-6 space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="text-xl font-bold text-white">Baked Edibles</h3>
+                <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-mono">Assorted Flavors</span>
+            </div>
+            <p class="text-xs text-slate-400">Includes: oreos, chips ahoy cookies, powdered donuts, chocolate cream cupcakes, cosmic brownies, and twinkies.</p>
+            
+            <ul class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs font-mono text-slate-300 pt-2 border-t border-slate-800">
+                <li class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">10 packs: <span class="text-emerald-400 font-bold">$100</span></li>
+                <li class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">25 packs: <span class="text-emerald-400 font-bold">$180</span></li>
+                <li class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">50 packs: <span class="text-emerald-400 font-bold">$320</span></li>
+                <li class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">100 packs: <span class="text-emerald-400 font-bold">$620</span></li>
+                <li class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">250 packs: <span class="text-emerald-400 font-bold">$1325</span></li>
+                <li class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">500 packs: <span class="text-emerald-400 font-bold">$3000</span></li>
+                <li class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 col-span-2">1000 packs: <span class="text-emerald-400 font-bold">$4500</span> <span class="text-amber-400 text-[10px] block">(Extra thrown in)</span></li>
+            </ul>
+            <button onclick="orderItem('Baked Edibles', 'Bulk Packs')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 mt-4 shadow-lg shadow-emerald-600/20">
+                <i class="fab fa-telegram"></i> Order Edibles via Telegram
+            </button>
+        </div>
+
+        <!-- Shipping & Payment Information Section -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+            <h3 class="text-lg font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                <i class="fas fa-shield-alt text-emerald-400"></i> Shipping & Payment Guidelines
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-slate-300">
+                <div class="space-y-3">
+                    <p><strong class="text-white">Payment:</strong> We only accept BTC</p>
+                    <p><strong class="text-white">Processing:</strong> Orders are processed and shipped within 24 hrs. Anything purchased before 1pm goes out same day.</p>
+                    <p><strong class="text-white">Schedule:</strong> Orders are shipped Monday-Saturday. 2-3 Day delivery.</p>
+                    <p><strong class="text-white">Tracking:</strong> Tracking numbers are not provided for opsec reasons.</p>
+                </div>
+                <div class="space-y-3">
+                    <p class="text-red-400"><strong>NO SHIPPING TO:</strong> California, Alaska, or Hawaii</p>
+                    <p class="text-red-400"><strong>NO SHIPPING TO:</strong> P.O. Boxes.</p>
+                    <div class="bg-slate-950 p-3 rounded-xl border border-emerald-900/50 font-mono text-[11px] text-emerald-400 break-all">
+                        <strong>BTC Address:</strong><br>23d6126653aa6dc076a6eba266a4530b
+                    </div>
+                </div>
+            </div>
+
+            <!-- Required Information Format -->
+            <div class="border-t border-slate-800 pt-4 space-y-3">
+                <p class="text-xs font-bold text-white">After purchase, text <span class="text-emerald-400">@rigby13</span> on Telegram with this exact info:</p>
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs font-mono text-slate-300 space-y-1">
+                    <p>(Exact product name ordered)</p>
+                    <p>(Grand total in USD-$)</p>
+                    <p>(Crypto transaction ID/Hash)</p>
+                    <p class="pt-2 text-slate-400">Real name</p>
+                    <p class="text-slate-400">Street address</p>
+                    <p class="text-slate-400">Apt#</p>
+                    <p class="text-slate-400">City</p>
+                    <p class="text-slate-400">State</p>
+                    <p class="text-slate-400">Zip code</p>
+                </div>
+                <p class="text-[11px] text-slate-500 italic">All orders go through @rigby13.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-emerald-900/30 py-6 text-center text-xs text-slate-500">
+        <p>© 2026 MEGPACKs Store. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript to handle Telegram Redirect -->
+    <script>
+        function orderItem(productName, details) {
+            const telegramUsername = "rigby13"; 
+            const message = `Hello, I would like to place an order for:\n- Product: ${productName} (${details})\n\nHere is my payment info & shipping details:\n- Grand Total: $\n- TXID:\n- Name:\n- Street Address:\n- Apt#:\n- City:\n- State:\n- Zip code:`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            const telegramUrl = `https://t.me/${telegramUsername}?text=${encodedMessage}`;
+            
+            window.open(telegramUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
