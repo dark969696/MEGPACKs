@@ -33,7 +33,7 @@
     <header class="border-b border-emerald-900/50 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-emerald-500/30">M</div>
+                <img src="logo.jpg" alt="MEGPACKs Logo" class="w-10 h-10 rounded-xl object-cover border border-emerald-500/40 shadow-lg shadow-emerald-500/20">
                 <span class="font-black text-2xl text-white tracking-wider neon-glow">MEGPACKs</span>
             </div>
             <a href="https://t.me/rigby13" target="_blank" class="text-sm bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition flex items-center gap-2 shadow-lg shadow-emerald-600/20">
@@ -45,10 +45,12 @@
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-6 py-10 flex-1 w-full space-y-12">
         
-        <!-- Hero Banner -->
-        <div class="text-center space-y-4 max-w-3xl mx-auto bg-slate-900/60 border border-emerald-500/30 p-8 rounded-3xl neon-border relative overflow-hidden">
+        <!-- Hero Banner with Large Logo -->
+        <div class="text-center space-y-4 max-w-3xl mx-auto bg-slate-900/60 border border-emerald-500/30 p-8 rounded-3xl neon-border relative overflow-hidden flex flex-col items-center">
             <div class="absolute -right-10 -top-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
             <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
+            
+            <img src="logo.jpg" alt="MEGPACKs Main Logo" class="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border-2 border-emerald-500/50 shadow-2xl shadow-emerald-500/30 mb-2">
             
             <h1 class="text-4xl md:text-6xl font-black text-white tracking-wide neon-glow">MEGPACKs</h1>
             <p class="text-sm font-mono tracking-widest text-emerald-400 uppercase font-bold">Medicinal Cannabis & Premium Catalog</p>
@@ -210,7 +212,7 @@
             </div>
         </div>
 
-        <!-- 6. Animated Reviews Section (At the bottom of the page) -->
+        <!-- 6. Animated Reviews Section -->
         <div class="bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition rounded-2xl p-7 space-y-6">
             <div class="flex items-center justify-between border-b border-slate-800 pb-4">
                 <h3 class="text-xl font-black text-white flex items-center gap-3">
@@ -222,51 +224,37 @@
             <!-- Swiper Slider Container -->
             <div class="swiper reviewsSwiper pb-10">
                 <div class="swiper-wrapper">
-                    
-                    <!-- Review Slide 1 -->
                     <div class="swiper-slide">
                         <div class="bg-slate-950 p-2 rounded-2xl border border-slate-800 overflow-hidden shadow-lg">
                             <img src="1.jpg" alt="Review 1" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
                         </div>
                     </div>
-
-                    <!-- Review Slide 2 -->
                     <div class="swiper-slide">
                         <div class="bg-slate-950 p-2 rounded-2xl border border-slate-800 overflow-hidden shadow-lg">
                             <img src="2.jpg" alt="Review 2" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
                         </div>
                     </div>
-
-                    <!-- Review Slide 3 -->
                     <div class="swiper-slide">
                         <div class="bg-slate-950 p-2 rounded-2xl border border-slate-800 overflow-hidden shadow-lg">
                             <img src="3.jpg" alt="Review 3" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
                         </div>
                     </div>
-
-                    <!-- Review Slide 4 -->
                     <div class="swiper-slide">
                         <div class="bg-slate-950 p-2 rounded-2xl border border-slate-800 overflow-hidden shadow-lg">
                             <img src="4.jpg" alt="Review 4" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
                         </div>
                     </div>
-
-                    <!-- Review Slide 5 -->
                     <div class="swiper-slide">
                         <div class="bg-slate-950 p-2 rounded-2xl border border-slate-800 overflow-hidden shadow-lg">
                             <img src="5.jpg" alt="Review 5" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
                         </div>
                     </div>
-
-                    <!-- Review Slide 6 -->
                     <div class="swiper-slide">
                         <div class="bg-slate-950 p-2 rounded-2xl border border-slate-800 overflow-hidden shadow-lg">
                             <img src="6.jpg" alt="Review 6" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
                         </div>
                     </div>
-
                 </div>
-                <!-- Pagination Dots -->
                 <div class="swiper-pagination"></div>
             </div>
         </div>
@@ -293,7 +281,6 @@
             window.open(telegramUrl, '_blank');
         }
 
-        // Initialize Swiper Reviews Animation
         const swiper = new Swiper('.reviewsSwiper', {
             slidesPerView: 1,
             spaceBetween: 20,
