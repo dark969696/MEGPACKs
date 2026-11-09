@@ -3,392 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VELORA Store</title>
+    <title>MinStore - Modern Minimalist E-Commerce</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Swiper CSS for Product Carousels -->
+    <!-- Swiper CSS for Clean Sliders -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
         body {
-            background-color: #eaeded;
+            background-color: #f7f7f7;
+            color: #222222;
         }
-        .amazon-header {
-            background-color: #131921;
+        .minimal-btn {
+            background-color: #111111;
+            color: #ffffff;
+            transition: all 0.3s ease;
         }
-        .amazon-subnav {
-            background-color: #232f3e;
+        .minimal-btn:hover {
+            background-color: #333333;
         }
-        .amazon-btn-gold {
-            background-color: #ffd814;
-            border-color: #fcd200;
+        .product-card {
+            background-color: #ffffff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .amazon-btn-gold:hover {
-            background-color: #f7ca00;
-        }
-        .amazon-btn-orange {
-            background-color: #ffa41c;
-            border-color: #ff8f00;
-        }
-        .amazon-btn-orange:hover {
-            background-color: #f08804;
-        }
-        .swiper-button-next, .swiper-button-prev {
-            background-color: rgba(255, 255, 255, 0.9);
-            color: #111;
-            width: 40px;
-            height: 45px;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-        }
-        .swiper-button-next:after, .swiper-button-prev:after {
-            font-size: 18px;
-            font-weight: bold;
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>
-<body class="text-slate-900 font-sans min-h-screen flex flex-col justify-between">
+<body class="font-sans min-h-screen flex flex-col justify-between selection:bg-slate-900 selection:text-white">
 
-    <!-- Amazon Top Header -->
-    <header class="text-white sticky top-0 z-50">
-        <!-- Main Bar -->
-        <div class="amazon-header px-4 py-2 flex items-center justify-between gap-4">
-            <!-- Logo -->
-            <div class="flex items-center gap-1 cursor-pointer">
-                <span class="font-black text-2xl tracking-tighter text-white">velora<span class="text-amber-500">.eg</span></span>
+    <!-- Header / Navbar -->
+    <header class="bg-white border-b border-slate-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <div class="text-2xl font-black tracking-widest text-slate-900">
+                MinStore<span class="text-xs font-normal text-slate-400">.co</span>
             </div>
 
-            <!-- Deliver to -->
-            <div class="hidden md:flex items-center gap-1 text-xs text-slate-300 cursor-pointer hover:border border-white p-1 rounded">
-                <i class="fas fa-map-marker-alt text-base text-white"></i>
-                <div>
-                    <span class="block text-[10px] text-slate-400">Deliver to</span>
-                    <span class="font-bold text-white">Cairo, Egypt</span>
-                </div>
-            </div>
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-10 text-xs font-semibold uppercase tracking-widest text-slate-600">
+                <a href="#" class="text-slate-950 font-bold border-b-2 border-slate-950 pb-1">Shop</a>
+                <a href="#" class="hover:text-slate-950 transition">Mobile Products</a>
+                <a href="#" class="hover:text-slate-950 transition">Smart Watches</a>
+                <a href="#" class="hover:text-slate-950 transition">About Us</a>
+                <a href="#" class="hover:text-slate-950 transition">Blog</a>
+            </nav>
 
-            <!-- Search Bar -->
-            <div class="flex-1 max-w-3xl flex items-center">
-                <select class="bg-slate-100 text-slate-700 text-xs py-2 px-2 rounded-l border-r border-slate-300 hidden sm:block outline-none">
-                    <option>All Departments</option>
-                    <option>Fashion</option>
-                    <option>Electronics</option>
-                    <option>Beauty</option>
-                </select>
-                <input type="text" placeholder="Search Velora.eg" class="w-full text-sm text-slate-900 py-2 px-3 outline-none sm:rounded-none rounded-l">
-                <button class="bg-amber-500 hover:bg-amber-600 text-slate-900 px-5 py-2 rounded-r font-bold">
-                    <i class="fas fa-search text-base"></i>
+            <!-- Icons Menu -->
+            <div class="flex items-center gap-6 text-sm text-slate-800">
+                <button class="hover:text-slate-400 transition"><i class="fas fa-search"></i></button>
+                <button class="hover:text-slate-400 transition"><i class="far fa-user"></i></button>
+                <button class="hover:text-slate-400 transition flex items-center gap-2">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="text-xs font-bold bg-slate-100 text-slate-900 px-2 py-0.5 rounded-full">0</span>
                 </button>
             </div>
-
-            <!-- Account & Orders -->
-            <div class="flex items-center gap-4 text-xs">
-                <div class="hidden sm:block cursor-pointer hover:border border-white p-1 rounded">
-                    <span class="block text-[10px] text-slate-300">Hello, sign in</span>
-                    <span class="font-bold">Account & Lists <i class="fas fa-caret-down"></i></span>
-                </div>
-                <div class="hidden sm:block cursor-pointer hover:border border-white p-1 rounded">
-                    <span class="block text-[10px] text-slate-300">Returns</span>
-                    <span class="font-bold">& Orders</span>
-                </div>
-                <div class="flex items-center cursor-pointer hover:border border-white p-1 rounded">
-                    <div class="relative">
-                        <i class="fas fa-shopping-cart text-2xl"></i>
-                        <span class="absolute -top-1 right-0 text-amber-500 font-black text-xs">0</span>
-                    </div>
-                    <span class="font-bold text-sm ml-1 hidden sm:inline">Cart</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sub Nav Bar -->
-        <div class="amazon-subnav px-4 py-1.5 text-xs text-white flex items-center gap-5 overflow-x-auto whitespace-nowrap">
-            <span class="font-bold flex items-center gap-1 cursor-pointer"><i class="fas fa-bars"></i> All</span>
-            <span class="cursor-pointer hover:text-amber-400">11.11 Mega Deals</span>
-            <span class="cursor-pointer hover:text-amber-400">Today's Deals</span>
-            <span class="cursor-pointer hover:text-amber-400">Mobile Phones</span>
-            <span class="cursor-pointer hover:text-amber-400">Fashion & Apparel</span>
-            <span class="cursor-pointer hover:text-amber-400">Electronics</span>
-            <span class="cursor-pointer hover:text-amber-400">Home & Kitchen</span>
         </div>
     </header>
 
-    <!-- Main Content Grid / Deals Sections -->
-    <main class="max-w-[1440px] mx-auto px-4 py-6 space-y-6 flex-1 w-full">
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 md:px-8 py-10 flex-1 w-full space-y-16">
 
-        <!-- Banner Announcement -->
-        <div class="bg-red-600 text-white p-3 rounded-md text-sm font-bold flex justify-between items-center shadow">
-            <div class="flex items-center gap-2">
-                <span class="bg-white text-red-600 px-2 py-0.5 rounded text-xs font-black">11.11 SALE</span>
-                <span>Up to 60% OFF across all everyday essentials & electronics!</span>
-            </div>
-            <span class="text-xs text-red-100 hidden sm:inline">Limited Time Offers</span>
-        </div>
-
-        <!-- Section 1: 11.11 Deals Carousel (Red Header Banner Style) -->
-        <div class="bg-white rounded border border-slate-200 p-4 shadow-sm space-y-3">
-            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-                <div class="flex items-center gap-3">
-                    <h2 class="text-xl font-bold text-slate-900">11.11 Sale | Featured Tech & Electronics</h2>
-                    <span class="text-xs text-red-600 font-bold hover:underline cursor-pointer">See all deals</span>
+        <!-- Minimal Hero Section -->
+        <section class="bg-white p-10 md:p-16 rounded-2xl flex flex-col-reverse md:flex-row items-center justify-between border border-slate-100 gap-10">
+            <div class="space-y-6 max-w-lg">
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Featured Tech Collection</span>
+                <h1 class="text-4xl md:text-5xl font-light tracking-tight text-slate-900 uppercase">
+                    Your Products <br><span class="font-bold">Are Great.</span>
+                </h1>
+                <p class="text-sm text-slate-500 leading-relaxed">Discover our minimalist curated technology items built for modern lifestyle and maximum efficiency.</p>
+                <div class="pt-2">
+                    <a href="#products" class="inline-block minimal-btn text-xs font-bold tracking-widest uppercase px-8 py-4 rounded">Explore Shop</a>
                 </div>
             </div>
 
-            <!-- Swiper Carousel -->
-            <div class="swiper electronicsSwiper relative py-2">
-                <div class="swiper-wrapper">
-
-                    <!-- Product Item 1 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
-                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
-                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">27% off</span>
-                                <i class="fas fa-mobile-alt text-6xl text-slate-400"></i>
-                            </div>
-                            <div class="mt-3 space-y-1">
-                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">Ultra Smart 5G Smartphone (128GB)</h3>
-                                <div class="flex items-center gap-1 text-xs text-amber-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                    <span class="text-slate-500 text-[10px]">(1,420)</span>
-                                </div>
-                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
-                                <div class="text-lg font-bold text-slate-950">EGP 17,299<span class="text-xs font-normal">00</span></div>
-                                <div class="text-[11px] text-slate-500 line-through">EGP 23,850.00</div>
-                            </div>
-                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Item 2 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
-                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
-                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">15% off</span>
-                                <i class="fas fa-laptop text-6xl text-slate-400"></i>
-                            </div>
-                            <div class="mt-3 space-y-1">
-                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">Pro Slim Laptop 15.6" Intel i7 16GB</h3>
-                                <div class="flex items-center gap-1 text-xs text-amber-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <span class="text-slate-500 text-[10px]">(890)</span>
-                                </div>
-                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
-                                <div class="text-lg font-bold text-slate-950">EGP 35,149<span class="text-xs font-normal">00</span></div>
-                                <div class="text-[11px] text-slate-500 line-through">EGP 41,500.00</div>
-                            </div>
-                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Item 3 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
-                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
-                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">30% off</span>
-                                <i class="fas fa-headphones text-6xl text-slate-400"></i>
-                            </div>
-                            <div class="mt-3 space-y-1">
-                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">Wireless Noise Canceling Earbuds Pro</h3>
-                                <div class="flex items-center gap-1 text-xs text-amber-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                    <span class="text-slate-500 text-[10px]">(410)</span>
-                                </div>
-                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
-                                <div class="text-lg font-bold text-slate-950">EGP 2,499<span class="text-xs font-normal">00</span></div>
-                                <div class="text-[11px] text-slate-500 line-through">EGP 3,500.00</div>
-                            </div>
-                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Item 4 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
-                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
-                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">21% off</span>
-                                <i class="fas fa-tv text-6xl text-slate-400"></i>
-                            </div>
-                            <div class="mt-3 space-y-1">
-                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">Smart TV 65 Inch 4K UHD Crystal Display</h3>
-                                <div class="flex items-center gap-1 text-xs text-amber-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <span class="text-slate-500 text-[10px]">(3,120)</span>
-                                </div>
-                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
-                                <div class="text-lg font-bold text-slate-950">EGP 36,499<span class="text-xs font-normal">00</span></div>
-                                <div class="text-[11px] text-slate-500 line-through">EGP 46,000.00</div>
-                            </div>
-                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-        </div>
-
-        <!-- Section 2: Fashion Category (Red Header Banner Style) -->
-        <div class="bg-white rounded border border-slate-200 p-4 shadow-sm space-y-3">
-            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-                <div class="flex items-center gap-3">
-                    <h2 class="text-xl font-bold text-slate-900">11.11 Sale | Fashion & Apparel | Up to 60% off</h2>
-                    <span class="text-xs text-red-600 font-bold hover:underline cursor-pointer">See all items</span>
+            <!-- Hero Image Showcase -->
+            <div class="w-full md:w-1/2 flex justify-center">
+                <div class="w-64 h-64 md:w-80 md:h-80 bg-slate-100 rounded-full flex items-center justify-center p-8">
+                    <i class="fas fa-clock text-8xl text-slate-800"></i>
                 </div>
             </div>
+        </section>
 
-            <!-- Swiper Carousel -->
-            <div class="swiper fashionSwiper relative py-2">
-                <div class="swiper-wrapper">
-
-                    <!-- Fashion Item 1 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
-                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
-                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">11.11 Deal</span>
-                                <i class="fas fa-tshirt text-6xl text-slate-400"></i>
-                            </div>
-                            <div class="mt-3 space-y-1">
-                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">Men's Classic Heavy Fleece Hoodie</h3>
-                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
-                                <div class="text-lg font-bold text-slate-950">EGP 2,969<span class="text-xs font-normal">00</span></div>
-                                <div class="text-[11px] text-slate-500 line-through">EGP 4,200.00</div>
-                            </div>
-                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Fashion Item 2 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
-                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
-                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">11.11 Deal</span>
-                                <i class="fas fa-user-tie text-6xl text-slate-400"></i>
-                            </div>
-                            <div class="mt-3 space-y-1">
-                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">Men's Formal Slim Suit Jacket</h3>
-                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
-                                <div class="text-lg font-bold text-slate-950">EGP 6,169<span class="text-xs font-normal">00</span></div>
-                                <div class="text-[11px] text-slate-500 line-through">EGP 8,500.00</div>
-                            </div>
-                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Fashion Item 3 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
-                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
-                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">11.11 Deal</span>
-                                <i class="fas fa-suitcase-rolling text-6xl text-slate-400"></i>
-                            </div>
-                            <div class="mt-3 space-y-1">
-                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">American Tourister Hard Suitcase 28"</h3>
-                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
-                                <div class="text-lg font-bold text-slate-950">EGP 3,100<span class="text-xs font-normal">00</span></div>
-                                <div class="text-[11px] text-slate-500 line-through">EGP 4,800.00</div>
-                            </div>
-                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Fashion Item 4 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
-                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
-                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">11.11 Deal</span>
-                                <i class="fas fa-running text-6xl text-slate-400"></i>
-                            </div>
-                            <div class="mt-3 space-y-1">
-                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">Unisex Poly Sportswear Tracksuit</h3>
-                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
-                                <div class="text-lg font-bold text-slate-950">EGP 4,780<span class="text-xs font-normal">00</span></div>
-                                <div class="text-[11px] text-slate-500 line-through">EGP 6,200.00</div>
-                            </div>
-                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
-                        </div>
-                    </div>
-
+        <!-- Product Category Grid Section 1: Mobile Products -->
+        <section id="products" class="space-y-8">
+            <div class="flex justify-between items-end border-b border-slate-200 pb-4">
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Category</span>
+                    <h2 class="text-xl font-bold uppercase tracking-wider text-slate-900">Mobile Products</h2>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <a href="#" class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-slate-900">View All →</a>
             </div>
-        </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+                <!-- Product Card 1 -->
+                <div class="product-card border border-slate-100 rounded-lg p-5 flex flex-col justify-between">
+                    <div class="bg-slate-50 h-52 rounded flex items-center justify-center relative mb-4">
+                        <i class="fas fa-mobile-alt text-6xl text-slate-700"></i>
+                    </div>
+                    <div class="space-y-2 text-center">
+                        <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Smartphones</span>
+                        <h3 class="text-xs font-bold uppercase text-slate-900">iPhone 15 Pro</h3>
+                        <p class="text-xs font-medium text-slate-500">$999.00</p>
+                    </div>
+                    <button class="mt-4 w-full border border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition text-[11px] uppercase font-bold py-2 rounded">Add to Cart</button>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card border border-slate-100 rounded-lg p-5 flex flex-col justify-between">
+                    <div class="bg-slate-50 h-52 rounded flex items-center justify-center relative mb-4">
+                        <i class="fas fa-mobile text-6xl text-slate-700"></i>
+                    </div>
+                    <div class="space-y-2 text-center">
+                        <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Smartphones</span>
+                        <h3 class="text-xs font-bold uppercase text-slate-900">iPhone 15</h3>
+                        <p class="text-xs font-medium text-slate-500">$799.00</p>
+                    </div>
+                    <button class="mt-4 w-full border border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition text-[11px] uppercase font-bold py-2 rounded">Add to Cart</button>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card border border-slate-100 rounded-lg p-5 flex flex-col justify-between">
+                    <div class="bg-slate-50 h-52 rounded flex items-center justify-center relative mb-4">
+                        <i class="fas fa-tablet-alt text-6xl text-slate-700"></i>
+                    </div>
+                    <div class="space-y-2 text-center">
+                        <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Tablets</span>
+                        <h3 class="text-xs font-bold uppercase text-slate-900">iPad Air 5</h3>
+                        <p class="text-xs font-medium text-slate-500">$599.00</p>
+                    </div>
+                    <button class="mt-4 w-full border border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition text-[11px] uppercase font-bold py-2 rounded">Add to Cart</button>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card border border-slate-100 rounded-lg p-5 flex flex-col justify-between">
+                    <div class="bg-slate-50 h-52 rounded flex items-center justify-center relative mb-4">
+                        <i class="fas fa-mobile-alt text-6xl text-slate-700"></i>
+                    </div>
+                    <div class="space-y-2 text-center">
+                        <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Smartphones</span>
+                        <h3 class="text-xs font-bold uppercase text-slate-900">iPhone 14 SE</h3>
+                        <p class="text-xs font-medium text-slate-500">$429.00</p>
+                    </div>
+                    <button class="mt-4 w-full border border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition text-[11px] uppercase font-bold py-2 rounded">Add to Cart</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Product Category Grid Section 2: Smart Watches -->
+        <section class="space-y-8">
+            <div class="flex justify-between items-end border-b border-slate-200 pb-4">
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Category</span>
+                    <h2 class="text-xl font-bold uppercase tracking-wider text-slate-900">Smart Watches</h2>
+                </div>
+                <a href="#" class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-slate-900">View All →</a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+                <!-- Watch Card 1 -->
+                <div class="product-card border border-slate-100 rounded-lg p-5 flex flex-col justify-between">
+                    <div class="bg-slate-50 h-52 rounded flex items-center justify-center relative mb-4">
+                        <i class="fas fa-clock text-6xl text-slate-700"></i>
+                    </div>
+                    <div class="space-y-2 text-center">
+                        <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Wearables</span>
+                        <h3 class="text-xs font-bold uppercase text-slate-900">Series 9 Watch</h3>
+                        <p class="text-xs font-medium text-slate-500">$399.00</p>
+                    </div>
+                    <button class="mt-4 w-full border border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition text-[11px] uppercase font-bold py-2 rounded">Add to Cart</button>
+                </div>
+
+                <!-- Watch Card 2 -->
+                <div class="product-card border border-slate-100 rounded-lg p-5 flex flex-col justify-between">
+                    <div class="bg-slate-50 h-52 rounded flex items-center justify-center relative mb-4">
+                        <i class="fas fa-stopwatch text-6xl text-slate-700"></i>
+                    </div>
+                    <div class="space-y-2 text-center">
+                        <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Wearables</span>
+                        <h3 class="text-xs font-bold uppercase text-slate-900">Ultra 2 Watch</h3>
+                        <p class="text-xs font-medium text-slate-500">$799.00</p>
+                    </div>
+                    <button class="mt-4 w-full border border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition text-[11px] uppercase font-bold py-2 rounded">Add to Cart</button>
+                </div>
+
+                <!-- Watch Card 3 -->
+                <div class="product-card border border-slate-100 rounded-lg p-5 flex flex-col justify-between">
+                    <div class="bg-slate-50 h-52 rounded flex items-center justify-center relative mb-4">
+                        <i class="fas fa-clock text-6xl text-slate-700"></i>
+                    </div>
+                    <div class="space-y-2 text-center">
+                        <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Wearables</span>
+                        <h3 class="text-xs font-bold uppercase text-slate-900">Sport Edition</h3>
+                        <p class="text-xs font-medium text-slate-500">$249.00</p>
+                    </div>
+                    <button class="mt-4 w-full border border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition text-[11px] uppercase font-bold py-2 rounded">Add to Cart</button>
+                </div>
+
+                <!-- Watch Card 4 -->
+                <div class="product-card border border-slate-100 rounded-lg p-5 flex flex-col justify-between">
+                    <div class="bg-slate-50 h-52 rounded flex items-center justify-center relative mb-4">
+                        <i class="fas fa-stopwatch text-6xl text-slate-700"></i>
+                    </div>
+                    <div class="space-y-2 text-center">
+                        <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Wearables</span>
+                        <h3 class="text-xs font-bold uppercase text-slate-900">Classic Leather Edition</h3>
+                        <p class="text-xs font-medium text-slate-500">$329.00</p>
+                    </div>
+                    <button class="mt-4 w-full border border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition text-[11px] uppercase font-bold py-2 rounded">Add to Cart</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Minimal Promotional Banner (New Year Sale Banner) -->
+        <section class="bg-slate-100 p-12 rounded-2xl flex flex-col md:flex-row items-center justify-between border border-slate-200">
+            <div class="space-y-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">10% Off Limited Offer</span>
+                <h2 class="text-3xl font-light uppercase tracking-tight text-slate-900">New Year Sale</h2>
+                <p class="text-xs text-slate-500">Get exclusive discounts across all minimalism collection items today.</p>
+            </div>
+            <button class="mt-6 md:mt-0 minimal-btn text-xs font-bold uppercase tracking-widest px-8 py-3.5 rounded">Shop Sale</button>
+        </section>
+
+        <!-- Newsletter Subscription Banner (Dark Bar Style) -->
+        <section class="bg-slate-950 text-white rounded-xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="space-y-2 text-center md:text-left">
+                <h3 class="text-lg font-bold uppercase tracking-widest">Subscribe Us Now</h3>
+                <p class="text-xs text-slate-400">Get instant updates about our new product releases and exclusive discounts.</p>
+            </div>
+            <div class="w-full md:w-auto flex items-center gap-2 max-w-md">
+                <input type="email" placeholder="Your email address..." class="w-full bg-slate-900 text-xs text-white px-4 py-3 rounded border border-slate-800 outline-none focus:border-slate-500">
+                <button class="bg-white text-slate-950 hover:bg-slate-200 text-xs font-bold uppercase tracking-widest px-6 py-3 rounded whitespace-nowrap">Subscribe</button>
+            </div>
+        </section>
 
     </main>
 
-    <!-- Amazon Footer -->
-    <footer class="mt-10">
-        <!-- Back to top -->
-        <a href="#" class="block bg-slate-700 hover:bg-slate-600 text-white text-center text-xs py-3 font-semibold">
-            Back to top
-        </a>
-        <!-- Footer Links -->
-        <div class="amazon-subnav text-slate-300 py-10 px-4">
-            <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-xs">
-                <div class="space-y-2">
-                    <h4 class="font-bold text-white text-sm">Get to Know Us</h4>
-                    <p class="hover:underline cursor-pointer">About Velora</p>
-                    <p class="hover:underline cursor-pointer">Careers</p>
-                    <p class="hover:underline cursor-pointer">Press Center</p>
-                </div>
-                <div class="space-y-2">
-                    <h4 class="font-bold text-white text-sm">Shop with Us</h4>
-                    <p class="hover:underline cursor-pointer">Your Account</p>
-                    <p class="hover:underline cursor-pointer">Your Orders</p>
-                    <p class="hover:underline cursor-pointer">Shipping Rates</p>
-                </div>
-                <div class="space-y-2">
-                    <h4 class="font-bold text-white text-sm">Make Money with Us</h4>
-                    <p class="hover:underline cursor-pointer">Sell on Velora</p>
-                    <p class="hover:underline cursor-pointer">Fulfillment by Velora</p>
-                </div>
-                <div class="space-y-2">
-                    <h4 class="font-bold text-white text-sm">Let Us Help You</h4>
-                    <p class="hover:underline cursor-pointer">Help & Customer Service</p>
-                    <p class="hover:underline cursor-pointer">Returns & Replacements</p>
-                </div>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-xs text-slate-500">
+            <div class="space-y-3">
+                <h4 class="font-bold text-slate-900 uppercase tracking-widest text-xs">MinStore</h4>
+                <p>Minimalist, high-performance technology showcase & catalog.</p>
+            </div>
+            <div class="space-y-3">
+                <h4 class="font-bold text-slate-900 uppercase tracking-widest text-xs">Quick Links</h4>
+                <p class="hover:text-slate-900 cursor-pointer">All Products</p>
+                <p class="hover:text-slate-900 cursor-pointer">Smart Watches</p>
+                <p class="hover:text-slate-900 cursor-pointer">Accessories</p>
+            </div>
+            <div class="space-y-3">
+                <h4 class="font-bold text-slate-900 uppercase tracking-widest text-xs">Customer Care</h4>
+                <p class="hover:text-slate-900 cursor-pointer">Help & FAQs</p>
+                <p class="hover:text-slate-900 cursor-pointer">Shipping & Returns</p>
+                <p class="hover:text-slate-900 cursor-pointer">Contact Us</p>
+            </div>
+            <div class="space-y-3">
+                <h4 class="font-bold text-slate-900 uppercase tracking-widest text-xs">Social</h4>
+                <p class="hover:text-slate-900 cursor-pointer">Instagram</p>
+                <p class="hover:text-slate-900 cursor-pointer">Twitter / X</p>
+                <p class="hover:text-slate-900 cursor-pointer">LinkedIn</p>
             </div>
         </div>
-        <div class="amazon-header text-center py-4 text-xs text-slate-400 border-t border-slate-800">
-            <p>© 2026, Velora.eg, Inc. or its affiliates. Amazon-inspired catalog template.</p>
+        <div class="text-center text-[11px] text-slate-400 mt-10 pt-6 border-t border-slate-100">
+            <p>© 2026 MinStore Catalog. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Swiper JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Init Swipers -->
-    <script>
-        const electronicsSwiper = new Swiper('.electronicsSwiper', {
-            slidesPerView: 1,
-            spaceBetween: 15,
-            navigation: {
-                nextEl: '.electronicsSwiper .swiper-button-next',
-                prevEl: '.electronicsSwiper .swiper-button-prev',
-            },
-            breakpoints: {
-                480: { slidesPerView: 2 },
-                768: { slidesPerView: 3 },
-                1024: { slidesPerView: 4 },
-            },
-        });
-
-        const fashionSwiper = new Swiper('.fashionSwiper', {
-            slidesPerView: 1,
-            spaceBetween: 15,
-            navigation: {
-                nextEl: '.fashionSwiper .swiper-button-next',
-                prevEl: '.fashionSwiper .swiper-button-prev',
-            },
-            breakpoints: {
-                480: { slidesPerView: 2 },
-                768: { slidesPerView: 3 },
-                1024: { slidesPerView: 4 },
-            },
-        });
-    </script>
 </body>
 </html>
