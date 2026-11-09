@@ -16,7 +16,7 @@
             text-shadow: 0 0 10px rgba(34, 197, 94, 0.6), 0 0 20px rgba(34, 197, 94, 0.4);
         }
         .neon-border {
-            box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
         }
         /* Custom Swiper Styles */
         .swiper-pagination-bullet-active {
@@ -45,16 +45,20 @@
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-6 py-10 flex-1 w-full space-y-12">
         
-        <!-- Hero Banner with Large Logo -->
-        <div class="text-center space-y-4 max-w-3xl mx-auto bg-slate-900/60 border border-emerald-500/30 p-8 rounded-3xl neon-border relative overflow-hidden flex flex-col items-center">
+        <!-- Hero Banner with Larger Prominent Logo -->
+        <div class="text-center space-y-5 max-w-3xl mx-auto bg-slate-900/60 border border-emerald-500/30 p-8 md:p-10 rounded-3xl neon-border relative overflow-hidden flex flex-col items-center">
             <div class="absolute -right-10 -top-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
             <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
             
-            <img src="logo.jpg" alt="MEGPACKs Main Logo" class="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border-2 border-emerald-500/50 shadow-2xl shadow-emerald-500/30 mb-2">
+            <!-- Larger Logo Image -->
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-green-400 rounded-3xl blur opacity-40 group-hover:opacity-75 transition duration-500"></div>
+                <img src="logo.jpg" alt="MEGPACKs Main Logo" class="relative w-48 h-48 md:w-60 md:h-60 rounded-3xl object-cover border-2 border-emerald-500/60 shadow-2xl mb-3">
+            </div>
             
             <h1 class="text-4xl md:text-6xl font-black text-white tracking-wide neon-glow">MEGPACKs</h1>
             <p class="text-sm font-mono tracking-widest text-emerald-400 uppercase font-bold">Medicinal Cannabis & Premium Catalog</p>
-            <p class="text-base text-slate-300 pt-2">Choose your items below and place your order directly via Telegram with <span class="text-emerald-400 font-bold">@rigby13</span>.</p>
+            <p class="text-base text-slate-300 pt-1">Choose your items below and place your order directly via Telegram with <span class="text-emerald-400 font-bold">@rigby13</span>.</p>
         </div>
 
         <!-- Products Catalog Grid -->
