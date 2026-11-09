@@ -3,296 +3,390 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VELORA - Premium Essentials & Catalog</title>
+    <title>VELORA Store</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Swiper CSS for Reviews Animation -->
+    <!-- Swiper CSS for Product Carousels -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
-        .brand-gradient {
-            background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #ec4899 100%);
+        body {
+            background-color: #eaeded;
         }
-        .text-gradient {
-            background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .amazon-header {
+            background-color: #131921;
         }
-        .card-glow {
-            transition: all 0.3s ease;
+        .amazon-subnav {
+            background-color: #232f3e;
         }
-        .card-glow:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px -10px rgba(124, 58, 237, 0.15);
+        .amazon-btn-gold {
+            background-color: #ffd814;
+            border-color: #fcd200;
         }
-        .swiper-pagination-bullet-active {
-            background-color: #7c3aed !important;
-            width: 24px !important;
-            border-radius: 6px !important;
+        .amazon-btn-gold:hover {
+            background-color: #f7ca00;
         }
-        .swiper-pagination-bullet {
-            background-color: #cbd5e1;
-            transition: all 0.3s ease;
+        .amazon-btn-orange {
+            background-color: #ffa41c;
+            border-color: #ff8f00;
+        }
+        .amazon-btn-orange:hover {
+            background-color: #f08804;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #111;
+            width: 40px;
+            height: 45px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 18px;
+            font-weight: bold;
         }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between selection:bg-purple-500 selection:text-white">
+<body class="text-slate-900 font-sans min-h-screen flex flex-col justify-between">
 
-    <!-- Header / Navbar -->
-    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 brand-gradient rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-purple-500/30">V</div>
-                <span class="font-black text-2xl tracking-wider text-gradient">VELORA</span>
+    <!-- Amazon Top Header -->
+    <header class="text-white sticky top-0 z-50">
+        <!-- Main Bar -->
+        <div class="amazon-header px-4 py-2 flex items-center justify-between gap-4">
+            <!-- Logo -->
+            <div class="flex items-center gap-1 cursor-pointer">
+                <span class="font-black text-2xl tracking-tighter text-white">velora<span class="text-amber-500">.eg</span></span>
             </div>
-            <a href="https://t.me/rigby13" target="_blank" class="text-sm brand-gradient hover:opacity-95 text-white font-bold px-6 py-2.5 rounded-full transition flex items-center gap-2 shadow-lg shadow-purple-500/25">
-                <i class="fab fa-telegram-plane text-base"></i> Order via Telegram
-            </a>
+
+            <!-- Deliver to -->
+            <div class="hidden md:flex items-center gap-1 text-xs text-slate-300 cursor-pointer hover:border border-white p-1 rounded">
+                <i class="fas fa-map-marker-alt text-base text-white"></i>
+                <div>
+                    <span class="block text-[10px] text-slate-400">Deliver to</span>
+                    <span class="font-bold text-white">Cairo, Egypt</span>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="flex-1 max-w-3xl flex items-center">
+                <select class="bg-slate-100 text-slate-700 text-xs py-2 px-2 rounded-l border-r border-slate-300 hidden sm:block outline-none">
+                    <option>All Departments</option>
+                    <option>Fashion</option>
+                    <option>Electronics</option>
+                    <option>Beauty</option>
+                </select>
+                <input type="text" placeholder="Search Velora.eg" class="w-full text-sm text-slate-900 py-2 px-3 outline-none sm:rounded-none rounded-l">
+                <button class="bg-amber-500 hover:bg-amber-600 text-slate-900 px-5 py-2 rounded-r font-bold">
+                    <i class="fas fa-search text-base"></i>
+                </button>
+            </div>
+
+            <!-- Account & Orders -->
+            <div class="flex items-center gap-4 text-xs">
+                <div class="hidden sm:block cursor-pointer hover:border border-white p-1 rounded">
+                    <span class="block text-[10px] text-slate-300">Hello, sign in</span>
+                    <span class="font-bold">Account & Lists <i class="fas fa-caret-down"></i></span>
+                </div>
+                <div class="hidden sm:block cursor-pointer hover:border border-white p-1 rounded">
+                    <span class="block text-[10px] text-slate-300">Returns</span>
+                    <span class="font-bold">& Orders</span>
+                </div>
+                <div class="flex items-center cursor-pointer hover:border border-white p-1 rounded">
+                    <div class="relative">
+                        <i class="fas fa-shopping-cart text-2xl"></i>
+                        <span class="absolute -top-1 right-0 text-amber-500 font-black text-xs">0</span>
+                    </div>
+                    <span class="font-bold text-sm ml-1 hidden sm:inline">Cart</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sub Nav Bar -->
+        <div class="amazon-subnav px-4 py-1.5 text-xs text-white flex items-center gap-5 overflow-x-auto whitespace-nowrap">
+            <span class="font-bold flex items-center gap-1 cursor-pointer"><i class="fas fa-bars"></i> All</span>
+            <span class="cursor-pointer hover:text-amber-400">11.11 Mega Deals</span>
+            <span class="cursor-pointer hover:text-amber-400">Today's Deals</span>
+            <span class="cursor-pointer hover:text-amber-400">Mobile Phones</span>
+            <span class="cursor-pointer hover:text-amber-400">Fashion & Apparel</span>
+            <span class="cursor-pointer hover:text-amber-400">Electronics</span>
+            <span class="cursor-pointer hover:text-amber-400">Home & Kitchen</span>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-6 py-12 flex-1 w-full space-y-14">
-        
-        <!-- Modern Hero Banner -->
-        <div class="text-center space-y-5 max-w-3xl mx-auto bg-gradient-to-b from-slate-800/80 to-slate-900/80 border border-slate-700/60 p-8 md:p-12 rounded-3xl relative overflow-hidden flex flex-col items-center shadow-2xl">
-            <div class="absolute -right-20 -top-20 w-56 h-56 bg-purple-600/20 rounded-full blur-3xl"></div>
-            <div class="absolute -left-20 -bottom-20 w-56 h-56 bg-pink-600/20 rounded-full blur-3xl"></div>
-            
-            <div class="w-20 h-20 brand-gradient rounded-3xl flex items-center justify-center text-white font-black text-4xl shadow-xl shadow-purple-500/30 mb-2">V</div>
-            
-            <span class="text-xs font-mono tracking-widest text-pink-400 uppercase font-black bg-pink-500/10 px-4 py-1.5 rounded-full border border-pink-500/20">
-                ✨ Exclusive Collection 2026
-            </span>
+    <!-- Main Content Grid / Deals Sections -->
+    <main class="max-w-[1440px] mx-auto px-4 py-6 space-y-6 flex-1 w-full">
 
-            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white">
-                Elevate Your <span class="text-gradient">Everyday Style</span>
-            </h1>
-            <p class="text-base text-slate-300 max-w-xl">Explore our premium catalog of curated essentials. Direct instant ordering available via Telegram support.</p>
+        <!-- Banner Announcement -->
+        <div class="bg-red-600 text-white p-3 rounded-md text-sm font-bold flex justify-between items-center shadow">
+            <div class="flex items-center gap-2">
+                <span class="bg-white text-red-600 px-2 py-0.5 rounded text-xs font-black">11.11 SALE</span>
+                <span>Up to 60% OFF across all everyday essentials & electronics!</span>
+            </div>
+            <span class="text-xs text-red-100 hidden sm:inline">Limited Time Offers</span>
         </div>
 
-        <!-- Products Catalog Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <!-- 1. Organic Haircare Shampoo -->
-            <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 flex flex-col justify-between card-glow space-y-6">
-                <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <h3 class="text-xl font-black text-white tracking-wide">Botanical Shampoo</h3>
-                        <span class="text-xs bg-purple-500/10 text-purple-400 border border-purple-500/20 px-3 py-1 rounded-full font-mono font-bold">Care</span>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">Nourishing organic shampoo enriched with natural oils for silkier, healthy hair.</p>
-                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-700/50 pt-4">
-                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">250 ml Bottle</span><span class="text-pink-400 font-black text-base">$18</span></li>
-                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">500 ml Bottle</span><span class="text-pink-400 font-black text-base">$32</span></li>
-                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Duo Value Pack</span><span class="text-pink-400 font-black text-base">$55</span></li>
-                    </ul>
-                </div>
-                <button onclick="orderItem('Botanical Shampoo', 'Standard Selection')" class="w-full brand-gradient hover:opacity-95 text-white font-bold text-xs py-3.5 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 tracking-wide uppercase">
-                    <i class="fab fa-telegram text-base"></i> Order via Telegram
-                </button>
-            </div>
-
-            <!-- 2. Classic Cotton Hoodie -->
-            <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 flex flex-col justify-between card-glow space-y-6">
-                <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <h3 class="text-xl font-black text-white tracking-wide">Essential Hoodie</h3>
-                        <span class="text-xs bg-pink-500/10 text-pink-400 border border-pink-500/20 px-3 py-1 rounded-full font-mono font-bold">Apparel</span>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">Ultra-soft heavy fleece hoodie designed for everyday comfort and modern fit.</p>
-                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-700/50 pt-4">
-                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Single Piece</span><span class="text-pink-400 font-black text-base">$45</span></li>
-                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Bundle (Set of 2)</span><span class="text-pink-400 font-black text-base">$80</span></li>
-                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Wholesale (10 pcs)</span><span class="text-pink-400 font-black text-base">$350</span></li>
-                    </ul>
-                </div>
-                <button onclick="orderItem('Essential Hoodie', 'Standard Selection')" class="w-full brand-gradient hover:opacity-95 text-white font-bold text-xs py-3.5 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 tracking-wide uppercase">
-                    <i class="fab fa-telegram text-base"></i> Order via Telegram
-                </button>
-            </div>
-
-            <!-- 3. Minimalist Leather Wallet -->
-            <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 flex flex-col justify-between card-glow space-y-6">
-                <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <h3 class="text-xl font-black text-white tracking-wide">Leather Cardholder</h3>
-                        <span class="text-xs bg-purple-500/10 text-purple-400 border border-purple-500/20 px-3 py-1 rounded-full font-mono font-bold">Accessories</span>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">Handcrafted genuine leather wallet with RFID blocking capability.</p>
-                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-700/50 pt-4">
-                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Standard Leather</span><span class="text-pink-400 font-black text-base">$25</span></li>
-                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Matte Black Edition</span><span class="text-pink-400 font-black text-base">$30</span></li>
-                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Gift Box Set</span><span class="text-pink-400 font-black text-base">$42</span></li>
-                    </ul>
-                </div>
-                <button onclick="orderItem('Slim Leather Cardholder', 'Standard Selection')" class="w-full brand-gradient hover:opacity-95 text-white font-bold text-xs py-3.5 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 tracking-wide uppercase">
-                    <i class="fab fa-telegram text-base"></i> Order via Telegram
-                </button>
-            </div>
-
-            <!-- 4. Stainless Steel Water Bottle -->
-            <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 flex flex-col justify-between card-glow space-y-6">
-                <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <h3 class="text-xl font-black text-white tracking-wide">Thermal Flask</h3>
-                        <span class="text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1 rounded-full font-mono font-bold">Lifestyle</span>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">Insulated double-wall flask keeping liquids cold for 24h or hot for 12h.</p>
-                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-700/50 pt-4">
-                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">500 ml Flask</span><span class="text-pink-400 font-black text-base">$22</span></li>
-                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">1000 ml Flask</span><span class="text-pink-400 font-black text-base">$34</span></li>
-                    </ul>
-                </div>
-                <button onclick="orderItem('Thermal Hydration Flask', 'Standard Selection')" class="w-full brand-gradient hover:opacity-95 text-white font-bold text-xs py-3.5 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 tracking-wide uppercase">
-                    <i class="fab fa-telegram text-base"></i> Order via Telegram
-                </button>
-            </div>
-
-            <!-- 5. Urban Everyday Backpack -->
-            <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 flex flex-col justify-between card-glow space-y-6">
-                <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <h3 class="text-xl font-black text-white tracking-wide">Urban Backpack</h3>
-                        <span class="text-xs bg-pink-500/10 text-pink-400 border border-pink-500/20 px-3 py-1 rounded-full font-mono font-bold">Bags</span>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">Water-resistant laptop backpack designed for daily travel and office commute.</p>
-                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-700/50 pt-4">
-                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Standard 15" Bag</span><span class="text-pink-400 font-black text-base">$58</span></li>
-                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Pro Travel Edition</span><span class="text-pink-400 font-black text-base">$75</span></li>
-                    </ul>
-                </div>
-                <button onclick="orderItem('Urban Commute Backpack', 'Standard Selection')" class="w-full brand-gradient hover:opacity-95 text-white font-bold text-xs py-3.5 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 tracking-wide uppercase">
-                    <i class="fab fa-telegram text-base"></i> Order via Telegram
-                </button>
-            </div>
-
-            <!-- 6. Wireless Earbuds -->
-            <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 flex flex-col justify-between card-glow space-y-6">
-                <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <h3 class="text-xl font-black text-white tracking-wide">Wireless Earbuds</h3>
-                        <span class="text-xs bg-purple-500/10 text-purple-400 border border-purple-500/20 px-3 py-1 rounded-full font-mono font-bold">Tech</span>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">Crystal clear audio with active noise cancellation and long battery lifespan.</p>
-                    <ul class="space-y-3 text-sm text-slate-200 font-mono mt-5 border-t border-slate-700/50 pt-4">
-                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Earbuds Set</span><span class="text-pink-400 font-black text-base">$65</span></li>
-                        <li class="flex justify-between items-center"><span class="font-semibold text-slate-300">Set + Wireless Charger</span><span class="text-pink-400 font-black text-base">$85</span></li>
-                    </ul>
-                </div>
-                <button onclick="orderItem('True Wireless Earbuds', 'Standard Selection')" class="w-full brand-gradient hover:opacity-95 text-white font-bold text-xs py-3.5 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 tracking-wide uppercase">
-                    <i class="fab fa-telegram text-base"></i> Order via Telegram
-                </button>
-            </div>
-
-        </div>
-
-        <!-- Order & Delivery Information Section -->
-        <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-8 space-y-6 shadow-xl">
-            <h3 class="text-xl font-black text-white border-b border-slate-700/60 pb-4 flex items-center gap-3">
-                <i class="fas fa-shipping-fast text-purple-400 text-2xl"></i> Ordering & Delivery Terms
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-slate-200">
-                <div class="space-y-3">
-                    <p><strong class="text-white text-base">Payment Methods:</strong> Credit Card, Apple Pay, PayPal & Online Direct Transfer.</p>
-                    <p><strong class="text-white text-base">Order Processing:</strong> Orders are dispatched within 24 hours of placement.</p>
-                </div>
-                <div class="space-y-3">
-                    <p><strong class="text-white text-base">Worldwide Delivery:</strong> Express 3-5 business days shipping available.</p>
-                    <p><strong class="text-white text-base">Return Policy:</strong> 30-day money-back guarantee for all catalog items.</p>
+        <!-- Section 1: 11.11 Deals Carousel (Red Header Banner Style) -->
+        <div class="bg-white rounded border border-slate-200 p-4 shadow-sm space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+                <div class="flex items-center gap-3">
+                    <h2 class="text-xl font-bold text-slate-900">11.11 Sale | Featured Tech & Electronics</h2>
+                    <span class="text-xs text-red-600 font-bold hover:underline cursor-pointer">See all deals</span>
                 </div>
             </div>
-        </div>
 
-        <!-- Animated Customer Feedback Section -->
-        <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-8 space-y-6 shadow-xl">
-            <div class="flex items-center justify-between border-b border-slate-700/60 pb-4">
-                <h3 class="text-xl font-black text-white flex items-center gap-3">
-                    <i class="fas fa-star text-amber-400 text-2xl"></i> Customer Reviews
-                </h3>
-                <span class="text-xs bg-purple-500/10 text-purple-400 border border-purple-500/20 px-3 py-1 rounded-full font-mono font-bold">Verified Feed</span>
-            </div>
-
-            <!-- Swiper Slider Container -->
-            <div class="swiper reviewsSwiper pb-12">
+            <!-- Swiper Carousel -->
+            <div class="swiper electronicsSwiper relative py-2">
                 <div class="swiper-wrapper">
+
+                    <!-- Product Item 1 -->
                     <div class="swiper-slide">
-                        <div class="bg-slate-900 p-2 rounded-2xl border border-slate-700/50 overflow-hidden shadow-lg">
-                            <img src="1.jpg" alt="Review 1" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
+                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
+                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
+                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">27% off</span>
+                                <i class="fas fa-mobile-alt text-6xl text-slate-400"></i>
+                            </div>
+                            <div class="mt-3 space-y-1">
+                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">Ultra Smart 5G Smartphone (128GB)</h3>
+                                <div class="flex items-center gap-1 text-xs text-amber-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    <span class="text-slate-500 text-[10px]">(1,420)</span>
+                                </div>
+                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
+                                <div class="text-lg font-bold text-slate-950">EGP 17,299<span class="text-xs font-normal">00</span></div>
+                                <div class="text-[11px] text-slate-500 line-through">EGP 23,850.00</div>
+                            </div>
+                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
                         </div>
                     </div>
+
+                    <!-- Product Item 2 -->
                     <div class="swiper-slide">
-                        <div class="bg-slate-900 p-2 rounded-2xl border border-slate-700/50 overflow-hidden shadow-lg">
-                            <img src="2.jpg" alt="Review 2" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
+                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
+                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
+                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">15% off</span>
+                                <i class="fas fa-laptop text-6xl text-slate-400"></i>
+                            </div>
+                            <div class="mt-3 space-y-1">
+                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">Pro Slim Laptop 15.6" Intel i7 16GB</h3>
+                                <div class="flex items-center gap-1 text-xs text-amber-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-slate-500 text-[10px]">(890)</span>
+                                </div>
+                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
+                                <div class="text-lg font-bold text-slate-950">EGP 35,149<span class="text-xs font-normal">00</span></div>
+                                <div class="text-[11px] text-slate-500 line-through">EGP 41,500.00</div>
+                            </div>
+                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
                         </div>
                     </div>
+
+                    <!-- Product Item 3 -->
                     <div class="swiper-slide">
-                        <div class="bg-slate-900 p-2 rounded-2xl border border-slate-700/50 overflow-hidden shadow-lg">
-                            <img src="3.jpg" alt="Review 3" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
+                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
+                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
+                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">30% off</span>
+                                <i class="fas fa-headphones text-6xl text-slate-400"></i>
+                            </div>
+                            <div class="mt-3 space-y-1">
+                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">Wireless Noise Canceling Earbuds Pro</h3>
+                                <div class="flex items-center gap-1 text-xs text-amber-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                    <span class="text-slate-500 text-[10px]">(410)</span>
+                                </div>
+                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
+                                <div class="text-lg font-bold text-slate-950">EGP 2,499<span class="text-xs font-normal">00</span></div>
+                                <div class="text-[11px] text-slate-500 line-through">EGP 3,500.00</div>
+                            </div>
+                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
                         </div>
                     </div>
+
+                    <!-- Product Item 4 -->
                     <div class="swiper-slide">
-                        <div class="bg-slate-900 p-2 rounded-2xl border border-slate-700/50 overflow-hidden shadow-lg">
-                            <img src="4.jpg" alt="Review 4" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
+                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
+                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
+                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">21% off</span>
+                                <i class="fas fa-tv text-6xl text-slate-400"></i>
+                            </div>
+                            <div class="mt-3 space-y-1">
+                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">Smart TV 65 Inch 4K UHD Crystal Display</h3>
+                                <div class="flex items-center gap-1 text-xs text-amber-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-slate-500 text-[10px]">(3,120)</span>
+                                </div>
+                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
+                                <div class="text-lg font-bold text-slate-950">EGP 36,499<span class="text-xs font-normal">00</span></div>
+                                <div class="text-[11px] text-slate-500 line-through">EGP 46,000.00</div>
+                            </div>
+                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="bg-slate-900 p-2 rounded-2xl border border-slate-700/50 overflow-hidden shadow-lg">
-                            <img src="5.jpg" alt="Review 5" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="bg-slate-900 p-2 rounded-2xl border border-slate-700/50 overflow-hidden shadow-lg">
-                            <img src="6.jpg" alt="Review 6" class="w-full h-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300">
-                        </div>
-                    </div>
+
                 </div>
-                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+        <!-- Section 2: Fashion Category (Red Header Banner Style) -->
+        <div class="bg-white rounded border border-slate-200 p-4 shadow-sm space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+                <div class="flex items-center gap-3">
+                    <h2 class="text-xl font-bold text-slate-900">11.11 Sale | Fashion & Apparel | Up to 60% off</h2>
+                    <span class="text-xs text-red-600 font-bold hover:underline cursor-pointer">See all items</span>
+                </div>
+            </div>
+
+            <!-- Swiper Carousel -->
+            <div class="swiper fashionSwiper relative py-2">
+                <div class="swiper-wrapper">
+
+                    <!-- Fashion Item 1 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
+                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
+                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">11.11 Deal</span>
+                                <i class="fas fa-tshirt text-6xl text-slate-400"></i>
+                            </div>
+                            <div class="mt-3 space-y-1">
+                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">Men's Classic Heavy Fleece Hoodie</h3>
+                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
+                                <div class="text-lg font-bold text-slate-950">EGP 2,969<span class="text-xs font-normal">00</span></div>
+                                <div class="text-[11px] text-slate-500 line-through">EGP 4,200.00</div>
+                            </div>
+                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Fashion Item 2 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
+                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
+                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">11.11 Deal</span>
+                                <i class="fas fa-user-tie text-6xl text-slate-400"></i>
+                            </div>
+                            <div class="mt-3 space-y-1">
+                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">Men's Formal Slim Suit Jacket</h3>
+                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
+                                <div class="text-lg font-bold text-slate-950">EGP 6,169<span class="text-xs font-normal">00</span></div>
+                                <div class="text-[11px] text-slate-500 line-through">EGP 8,500.00</div>
+                            </div>
+                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Fashion Item 3 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
+                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
+                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">11.11 Deal</span>
+                                <i class="fas fa-suitcase-rolling text-6xl text-slate-400"></i>
+                            </div>
+                            <div class="mt-3 space-y-1">
+                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">American Tourister Hard Suitcase 28"</h3>
+                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
+                                <div class="text-lg font-bold text-slate-950">EGP 3,100<span class="text-xs font-normal">00</span></div>
+                                <div class="text-[11px] text-slate-500 line-through">EGP 4,800.00</div>
+                            </div>
+                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Fashion Item 4 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white border border-slate-200 rounded p-3 flex flex-col justify-between h-full hover:shadow-md transition">
+                            <div class="relative bg-slate-50 p-4 rounded flex items-center justify-center h-44">
+                                <span class="absolute top-2 left-2 bg-red-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded">11.11 Deal</span>
+                                <i class="fas fa-running text-6xl text-slate-400"></i>
+                            </div>
+                            <div class="mt-3 space-y-1">
+                                <h3 class="text-xs font-semibold text-slate-800 line-clamp-2">Unisex Poly Sportswear Tracksuit</h3>
+                                <div class="text-red-600 font-bold text-xs">11.11 Deal</div>
+                                <div class="text-lg font-bold text-slate-950">EGP 4,780<span class="text-xs font-normal">00</span></div>
+                                <div class="text-[11px] text-slate-500 line-through">EGP 6,200.00</div>
+                            </div>
+                            <button class="mt-3 w-full amazon-btn-gold text-slate-900 font-medium text-xs py-1.5 rounded shadow-sm">Add to Cart</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </div>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-400">
-        <p>© 2026 VELORA Store. All rights reserved.</p>
+    <!-- Amazon Footer -->
+    <footer class="mt-10">
+        <!-- Back to top -->
+        <a href="#" class="block bg-slate-700 hover:bg-slate-600 text-white text-center text-xs py-3 font-semibold">
+            Back to top
+        </a>
+        <!-- Footer Links -->
+        <div class="amazon-subnav text-slate-300 py-10 px-4">
+            <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-xs">
+                <div class="space-y-2">
+                    <h4 class="font-bold text-white text-sm">Get to Know Us</h4>
+                    <p class="hover:underline cursor-pointer">About Velora</p>
+                    <p class="hover:underline cursor-pointer">Careers</p>
+                    <p class="hover:underline cursor-pointer">Press Center</p>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-white text-sm">Shop with Us</h4>
+                    <p class="hover:underline cursor-pointer">Your Account</p>
+                    <p class="hover:underline cursor-pointer">Your Orders</p>
+                    <p class="hover:underline cursor-pointer">Shipping Rates</p>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-white text-sm">Make Money with Us</h4>
+                    <p class="hover:underline cursor-pointer">Sell on Velora</p>
+                    <p class="hover:underline cursor-pointer">Fulfillment by Velora</p>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-white text-sm">Let Us Help You</h4>
+                    <p class="hover:underline cursor-pointer">Help & Customer Service</p>
+                    <p class="hover:underline cursor-pointer">Returns & Replacements</p>
+                </div>
+            </div>
+        </div>
+        <div class="amazon-header text-center py-4 text-xs text-slate-400 border-t border-slate-800">
+            <p>© 2026, Velora.eg, Inc. or its affiliates. Amazon-inspired catalog template.</p>
+        </div>
     </footer>
 
     <!-- Swiper JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- JavaScript to handle Telegram Redirect & Swiper Animation -->
+    <!-- Init Swipers -->
     <script>
-        function orderItem(productName, details) {
-            const telegramUsername = "rigby13"; 
-            const message = `Hello, I would like to place an order for:\n- Product: ${productName}\n- Variant: ${details}\n\nPlease confirm availability and shipping options.`;
-            
-            const encodedMessage = encodeURIComponent(message);
-            const telegramUrl = `https://t.me/${telegramUsername}?text=${encodedMessage}`;
-            
-            window.open(telegramUrl, '_blank');
-        }
-
-        const swiper = new Swiper('.reviewsSwiper', {
+        const electronicsSwiper = new Swiper('.electronicsSwiper', {
             slidesPerView: 1,
-            spaceBetween: 20,
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
+            spaceBetween: 15,
+            navigation: {
+                nextEl: '.electronicsSwiper .swiper-button-next',
+                prevEl: '.electronicsSwiper .swiper-button-prev',
             },
             breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 24,
-                },
+                480: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 4 },
+            },
+        });
+
+        const fashionSwiper = new Swiper('.fashionSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 15,
+            navigation: {
+                nextEl: '.fashionSwiper .swiper-button-next',
+                prevEl: '.fashionSwiper .swiper-button-prev',
+            },
+            breakpoints: {
+                480: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 4 },
             },
         });
     </script>
